@@ -1,6 +1,7 @@
 package com.example.starwarslistapp.ui.components.people
 
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope
 import com.example.starwarslistapp.data.network.model.FilmPerson
 import com.example.starwarslistapp.data.repository.StarWarsRepository
@@ -13,15 +14,16 @@ class PeopleViewModel(
 ) : BaseViewModel() {
 
     val peopleList = mutableStateListOf<FilmPerson>()
+    val isLoading = mutableStateOf(false)
 
     init {
         getPeopleList()
     }
 
-    private fun getPeopleList() = runAsync {
+    private fun getPeopleList() = runAsync(isLoading) {
+        val people = starWarsRepository.getPeopleList()
         viewModelScope.launch {
-            peopleList.addAll(starWarsRepository.getPeopleList())
+            peopleList.addAll(people)
         }
     }
-
 }

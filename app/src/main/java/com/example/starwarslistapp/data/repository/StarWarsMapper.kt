@@ -5,6 +5,10 @@ import com.example.starwarslistapp.data.network.model.FilmPersonDTO
 
 fun FilmPersonDTO.toDomain(): FilmPerson {
     return FilmPerson(
-        name = name
+        name = name,
+        birthYear = birthYear,
+        eyeColor = eyeColor,
+        gender = gender,
+        hairColor = hairColor
     )
 }

@@ -7,5 +7,21 @@
     <fragment
         android:id="@+id/peopleFragment"
         android:name="com.example.starwarslistapp.ui.components.people.PeopleFragment"
-        android:label="PeopleFragment" />
+        android:label="PeopleFragment">
+
+        <action
+            android:id="@+id/action_peopleFragment_to_personDetailsFragment"
+            app:destination="@id/personDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/personDetailsFragment"
+        android:name="com.example.starwarslistapp.ui.components.details.PersonDetailsFragment"
+        android:label="PersonDetailsFragment">
+        <argument
+            android:name="person"
+            app:argType="com.example.starwarslistapp.data.network.model.FilmPerson" />
+
+    </fragment>
 </navigation>
