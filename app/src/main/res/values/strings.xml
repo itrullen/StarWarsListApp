@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">StarWarsListApp</string>
+    <string name="app_name">StarWars App</string>
     <string name="title_activity_main">MainActivity</string>
 </resources>

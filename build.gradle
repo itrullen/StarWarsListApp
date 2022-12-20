@@ -1,6 +1,34 @@
 buildscript {
     ext {
+        // https://kotlinlang.org/docs/releases.html#release-details
+        kotlin_version = '1.7.20'
+
+        //Jetpack Compose UI
         compose_ui_version = '1.3.2'
+
+        //Dependency injection
+        koin_version = "3.2.2"
+        koin_android_version = "3.2.3"
+        koin_android_compose_version = "3.2.2"
+
+        //Http client multiplatform
+        ktor_version = '2.1.2'
+
+        // https://developer.android.com/jetpack/androidx/releases/navigation
+        nav_version = '2.5.2'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
