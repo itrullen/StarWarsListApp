@@ -3,7 +3,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Icon
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -16,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.starwarslistapp.data.network.model.FilmPerson
 import com.example.starwarslistapp.presentation.components.buttons.FavoriteButton
+import com.example.starwarslistapp.presentation.theme.Purple200
 import com.example.starwarslistapp.presentation.ui.people.PeopleFragmentDirections
 import com.example.starwarslistapp.presentation.ui.people.PeopleViewModel
 
@@ -24,7 +28,6 @@ fun PeopleScreenContent(viewModel: PeopleViewModel, navController: NavController
     val peopleList = remember { viewModel.peopleList }
     val favoritesList = remember { viewModel.favoritesList }
     val filterFavourites by viewModel.filterFavorites
-    val isLoading by viewModel.isLoading
 
     var mainList: SnapshotStateList<FilmPerson>
 
@@ -67,15 +70,24 @@ fun PeopleListItem(
             .fillMaxWidth()
             .height(56.dp)
             .clickable { onClick() }
-            .padding(horizontal = 24.dp),
+            .padding(horizontal = 12.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(
-            text = person.name
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Start
+        ) {
+            FavoriteButton(person.favorite, onFavouriteChanged)
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(text = person.name)
+        }
 
-        FavoriteButton(person.favorite, onFavouriteChanged)
+        Icon(
+            imageVector = Icons.Filled.KeyboardArrowRight,
+            tint = Purple200,
+            contentDescription = null
+        )
     }
 }
 

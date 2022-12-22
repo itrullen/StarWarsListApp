@@ -31,7 +31,8 @@ class PersonDetailsFragment : BaseFragment() {
             StarWarsListAppTheme {
                 // A surface container using the 'background' color from the theme
                 TopNavigationBaseScreen(
-                    onBackPressed = { findNavController().navigateUp() }, title = "Details") {
+                    onBackPressed = { findNavController().navigateUp() }, title = "Details"
+                ) {
                     PersonDetailsScreen(viewModel = viewModel)
                 }
             }

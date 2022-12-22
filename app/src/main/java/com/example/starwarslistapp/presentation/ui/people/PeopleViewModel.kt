@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class PeopleViewModel(
     private val starWarsRepository: StarWarsRepository
 ) : BaseViewModel() {
-
     val peopleList = mutableStateListOf<FilmPerson>()
     val favoritesList = mutableStateListOf<FilmPerson>()
     val filterFavorites = mutableStateOf(false)
@@ -33,8 +32,10 @@ class PeopleViewModel(
             emptyList<FilmPerson>().toMutableList()
         temporaryList.addAll(peopleList)
         temporaryList[index].favorite = !peopleList[index].favorite
-        peopleList.clear()
-        peopleList.addAll(temporaryList)
+        viewModelScope.launch {
+            peopleList.clear()
+            peopleList.addAll(temporaryList)
+        }
     }
 
     fun filterFavorites(enableFilter: Boolean) {
@@ -43,7 +44,9 @@ class PeopleViewModel(
             emptyList<FilmPerson>().toMutableList()
         temporaryList.addAll(peopleList)
         val list = temporaryList.filter { it.favorite }
-        favoritesList.clear()
-        favoritesList.addAll(list)
+        viewModelScope.launch {
+            favoritesList.clear()
+            favoritesList.addAll(list)
+        }
     }
 }

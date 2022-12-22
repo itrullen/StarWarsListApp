@@ -64,7 +64,6 @@ fun TopNavigationBaseScreen(
                             modifier = Modifier.align(Alignment.CenterEnd)
                         )
                     }
-
                 }
             }
             content()

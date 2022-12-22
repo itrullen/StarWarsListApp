@@ -17,6 +17,7 @@ fun FavoriteButton(
     IconToggleButton(
         checked = isFavorite,
         onCheckedChange = onFavouriteChanged,
+        modifier = modifier ?: Modifier
     ) {
         Icon(
             tint = Purple200,
@@ -26,7 +27,6 @@ fun FavoriteButton(
                 Icons.Default.FavoriteBorder
             },
             contentDescription = null,
-            modifier = modifier ?: Modifier
         )
     }
 }

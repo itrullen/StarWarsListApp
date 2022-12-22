@@ -33,9 +33,8 @@ class PeopleFragment : BaseFragment() {
                 TopNavigationBaseScreen(
                     title = stringResource(id = R.string.app_name),
                     filterFavorite = viewModel.filterFavorites.value,
-                    onClickButton = {
-                        viewModel.filterFavorites(it)
-                    }) {
+                    onClickButton = { viewModel.filterFavorites(it) })
+                {
                     PeopleScreenContent(viewModel = viewModel, findNavController())
                 }
             }
