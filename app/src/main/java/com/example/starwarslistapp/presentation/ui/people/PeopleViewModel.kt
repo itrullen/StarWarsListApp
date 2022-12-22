@@ -14,13 +14,12 @@ class PeopleViewModel(
     val peopleList = mutableStateListOf<FilmPerson>()
     val favoritesList = mutableStateListOf<FilmPerson>()
     val filterFavorites = mutableStateOf(false)
-    val isLoading = mutableStateOf(false)
 
     init {
         getPeopleList()
     }
 
-    private fun getPeopleList() = runAsync(isLoading) {
+    private fun getPeopleList() = runAsync {
         val people = starWarsRepository.getPeopleList()
         viewModelScope.launch {
             peopleList.addAll(people)
