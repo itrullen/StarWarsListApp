@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/peopleFragment"
-        android:name="com.example.starwarslistapp.ui.components.people.PeopleFragment"
+        android:name="com.example.starwarslistapp.presentation.ui.people.PeopleFragment"
         android:label="PeopleFragment">
 
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/personDetailsFragment"
-        android:name="com.example.starwarslistapp.ui.components.details.PersonDetailsFragment"
+        android:name="com.example.starwarslistapp.presentation.ui.details.PersonDetailsFragment"
         android:label="PersonDetailsFragment">
         <argument
             android:name="person"

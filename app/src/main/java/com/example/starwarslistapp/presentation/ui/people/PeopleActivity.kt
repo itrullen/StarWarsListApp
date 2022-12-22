@@ -1,7 +1,6 @@
-package com.example.starwarslistapp.ui.components.people
+package com.example.starwarslistapp.presentation.ui.people
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.appcompat.app.AppCompatActivity
 import com.example.starwarslistapp.databinding.ActivityPeopleBinding
 

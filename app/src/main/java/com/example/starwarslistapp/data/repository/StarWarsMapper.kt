@@ -9,6 +9,7 @@ fun FilmPersonDTO.toDomain(): FilmPerson {
         birthYear = birthYear,
         eyeColor = eyeColor,
         gender = gender,
-        hairColor = hairColor
+        hairColor = hairColor,
+        favorite = false
     )
 }

@@ -16,7 +16,7 @@
         android:theme="@style/Theme.StarWarsListApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.components.people.PeopleActivity"
+            android:name=".presentation.ui.people.PeopleActivity"
             android:exported="true"
             android:theme="@style/Theme.StarWarsListApp">
             <intent-filter>

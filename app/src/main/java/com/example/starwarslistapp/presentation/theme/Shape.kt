@@ -1,4 +1,4 @@
-package com.example.starwarslistapp.ui.theme
+package com.example.starwarslistapp.presentation.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

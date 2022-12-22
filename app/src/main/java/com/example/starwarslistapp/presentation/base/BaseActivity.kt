@@ -1,4 +1,4 @@
-package com.example.starwarslistapp.ui.base
+package com.example.starwarslistapp.presentation.base
 
 import androidx.appcompat.app.AppCompatActivity
 

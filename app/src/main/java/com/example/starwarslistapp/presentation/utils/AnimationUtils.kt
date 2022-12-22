@@ -1,4 +1,4 @@
-package com.example.starwarslistapp.ui.utils
+package com.example.starwarslistapp.presentation.utils
 
 import androidx.annotation.RawRes
 import androidx.compose.runtime.Composable

@@ -1,19 +1,16 @@
-package com.example.starwarslistapp.ui.components.details
+package com.example.starwarslistapp.presentation.ui.details
 
+import TopNavigationBaseScreen
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.starwarslistapp.ui.base.BaseFragment
-import com.example.starwarslistapp.ui.theme.StarWarsListAppTheme
+import com.example.starwarslistapp.presentation.base.BaseFragment
+import com.example.starwarslistapp.presentation.theme.StarWarsListAppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -33,10 +30,8 @@ class PersonDetailsFragment : BaseFragment() {
         setContent {
             StarWarsListAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
+                TopNavigationBaseScreen(
+                    onBackPressed = { findNavController().navigateUp() }, title = "Details") {
                     PersonDetailsScreen(viewModel = viewModel)
                 }
             }

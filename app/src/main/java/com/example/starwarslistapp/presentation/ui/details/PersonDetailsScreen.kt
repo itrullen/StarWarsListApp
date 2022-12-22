@@ -1,8 +1,8 @@
-package com.example.starwarslistapp.ui.components.details
+package com.example.starwarslistapp.presentation.ui.details
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import com.example.starwarslistapp.ui.theme.Typography
+import com.example.starwarslistapp.presentation.theme.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,22 +21,22 @@ fun PersonDetailsScreen(viewModel: PersonDetailsViewModel) {
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = person.birthYear,
+            text = "Year of Birth: ${person.birthYear}",
             style = Typography.h2
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = person.gender,
+            text = "Gender: ${person.gender}",
             style = Typography.h3
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = person.eyeColor,
+            text = "Eye Color: ${person.eyeColor}",
             style = Typography.body1
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = person.hairColor,
+            text = "Hair Color: ${person.hairColor}",
             style = Typography.body1
         )
     }

@@ -1,4 +1,4 @@
-package com.example.starwarslistapp.ui.theme
+package com.example.starwarslistapp.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -22,6 +22,13 @@ val Typography = Typography(
         fontSize = 20.sp,
         lineHeight = 32.sp,
         color = Purple500
+    ),
+    h3 = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontStyle = FontStyle.Normal,
+        fontSize = 14.sp,
+        lineHeight = 24.sp,
+        color = Purple200
     ),
     body1 = TextStyle(
         fontFamily = FontFamily.Default,

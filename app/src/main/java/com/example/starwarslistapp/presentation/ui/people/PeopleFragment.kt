@@ -1,19 +1,18 @@
-package com.example.starwarslistapp.ui.components.people
+package com.example.starwarslistapp.presentation.ui.people
 
 import PeopleScreenContent
+import TopNavigationBaseScreen
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.findNavController
-import com.example.starwarslistapp.ui.base.BaseFragment
-import com.example.starwarslistapp.ui.theme.StarWarsListAppTheme
+import com.example.starwarslistapp.R
+import com.example.starwarslistapp.presentation.base.BaseFragment
+import com.example.starwarslistapp.presentation.theme.StarWarsListAppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PeopleFragment : BaseFragment() {
@@ -31,10 +30,12 @@ class PeopleFragment : BaseFragment() {
         setContent {
             StarWarsListAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
+                TopNavigationBaseScreen(
+                    title = stringResource(id = R.string.app_name),
+                    filterFavorite = viewModel.filterFavorites.value,
+                    onClickButton = {
+                        viewModel.filterFavorites(it)
+                    }) {
                     PeopleScreenContent(viewModel = viewModel, findNavController())
                 }
             }

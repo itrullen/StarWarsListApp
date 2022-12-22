@@ -7,5 +7,6 @@ data class FilmPerson(
     val birthYear: String,
     val eyeColor: String,
     val gender: String,
-    val hairColor: String
+    val hairColor: String,
+    var favorite: Boolean
 ) : Serializable
