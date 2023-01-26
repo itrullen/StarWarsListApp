@@ -1,5 +1,5 @@
 # StarWarsListApp
-Technical assestment as an Android developer
+App that shows Star Wars characters information.
 
 ## Features
 - Fetch list of items fetched from an API
@@ -8,10 +8,10 @@ Technical assestment as an Android developer
 - The ability to mark an items as favourite
 - The ability to filter the list containing all the items by favourites
 
-## Technical requirements
+## Technical details
 - The application is written in Kotlin.
 - The code is well structured and easy to understand.
-- Preferably clean architecture with MVVM .
+- Clean architecture with MVVM .
 - Good separation of concerns.
 - Communication with a RESTful API with JSON format.
-- We would like to see the UI in Jetpack Compose.
+- UI in Jetpack Compose.
