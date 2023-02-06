@@ -1,10 +1,12 @@
 package com.example.starwarslistapp.presentation.ui.details
 
-import TopNavigationBaseScreen
+import FavoritesAppBar
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.Scaffold
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
@@ -17,24 +19,28 @@ import org.koin.core.parameter.parametersOf
 class PersonDetailsFragment : Fragment() {
 
     private val args: PersonDetailsFragmentArgs by navArgs()
-    private val viewModel: PersonDetailsViewModel by viewModel{ parametersOf(args) }
+    private val viewModel: PersonDetailsViewModel by viewModel { parametersOf(args) }
 
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setViewCompositionStrategy(
             ViewCompositionStrategy.DisposeOnLifecycleDestroyed(viewLifecycleOwner)
         )
         setContent {
-            StarWarsListAppTheme {
-                // A surface container using the 'background' color from the theme
-                TopNavigationBaseScreen(
-                    onBackPressed = { findNavController().navigateUp() }, title = "Details"
-                ) {
-                    PersonDetailsScreen(viewModel = viewModel)
-                }
+            StarWarsListAppTheme(darkTheme = false) {
+                Scaffold(
+                    topBar = {
+                        FavoritesAppBar(
+                            onBackPressed = { findNavController().navigateUp() },
+                            title = "Details"
+                        )
+                    },
+                    content = {
+                        PersonDetailsScreen(viewModel = viewModel)
+                    }
+                )
             }
         }
     }

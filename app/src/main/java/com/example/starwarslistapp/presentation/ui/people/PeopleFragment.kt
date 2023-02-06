@@ -1,11 +1,13 @@
 package com.example.starwarslistapp.presentation.ui.people
 
 import PeopleScreenContent
-import TopNavigationBaseScreen
+import FavoritesAppBar
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.Scaffold
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
@@ -19,6 +21,7 @@ class PeopleFragment : Fragment() {
 
     private val viewModel: PeopleViewModel by viewModel()
 
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,15 +31,18 @@ class PeopleFragment : Fragment() {
             ViewCompositionStrategy.DisposeOnLifecycleDestroyed(viewLifecycleOwner)
         )
         setContent {
-            StarWarsListAppTheme {
-                // A surface container using the 'background' color from the theme
-                TopNavigationBaseScreen(
-                    title = stringResource(id = R.string.app_name),
-                    filterFavorite = viewModel.filterFavorites.value,
-                    onClickButton = { viewModel.filterFavorites(it) })
-                {
-                    PeopleScreenContent(viewModel = viewModel, findNavController())
-                }
+            StarWarsListAppTheme(darkTheme = false) {
+                Scaffold(
+                    topBar = {
+                        FavoritesAppBar(
+                            title = stringResource(id = R.string.app_name),
+                            filterFavorite = viewModel.filterFavorites.value,
+                            onClickButton = { viewModel.filterFavorites(it) })
+                    },
+                    content = {
+                        PeopleScreenContent(viewModel = viewModel, findNavController())
+                    }
+                )
             }
         }
     }
