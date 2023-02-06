@@ -11,7 +11,7 @@ data class PersonItem(
     val gender: String,
     val hairColor: String,
     var favorite: Boolean
-): Serializable
+) : Serializable
 
 fun PersonDTO.toDomain(): PersonItem {
     return PersonItem(

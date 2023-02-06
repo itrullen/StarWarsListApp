@@ -7,7 +7,7 @@ import com.example.starwarslistapp.data.database.entities.PersonEntity
 interface PersonDAO {
 
     @Query("SELECT * FROM person_table")
-    suspend fun getAllPeople() : List<PersonEntity>
+    suspend fun getAllPeople(): List<PersonEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(people: List<PersonEntity>)

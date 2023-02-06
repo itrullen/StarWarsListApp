@@ -30,17 +30,13 @@ class PersonDetailsFragment : Fragment() {
         )
         setContent {
             StarWarsListAppTheme(darkTheme = false) {
-                Scaffold(
-                    topBar = {
-                        FavoritesAppBar(
-                            onBackPressed = { findNavController().navigateUp() },
-                            title = "Details"
-                        )
-                    },
-                    content = {
-                        PersonDetailsScreen(viewModel = viewModel)
-                    }
-                )
+                Scaffold(topBar = {
+                    FavoritesAppBar(
+                        onBackPressed = { findNavController().navigateUp() }, title = "Details"
+                    )
+                }, content = {
+                    PersonDetailsScreen(viewModel = viewModel)
+                })
             }
         }
     }

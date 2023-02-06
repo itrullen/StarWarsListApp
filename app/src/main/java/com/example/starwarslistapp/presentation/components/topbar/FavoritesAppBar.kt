@@ -22,8 +22,7 @@ fun FavoritesAppBar(
     onClickButton: ((Boolean) -> Unit)? = null,
 ) {
     TopAppBar(
-        modifier = Modifier
-            .fillMaxWidth()
+        modifier = Modifier.fillMaxWidth()
     ) {
         Box(
             modifier = Modifier
@@ -45,20 +44,15 @@ fun FavoritesAppBar(
 
             title?.let {
                 Text(
-                    text = it,
-                    style = Typography.body1.copy(
-                        fontWeight = FontWeight.Bold,
-                        color = Color.White
-                    ),
-                    modifier = Modifier.align(Alignment.Center)
+                    text = it, style = Typography.body1.copy(
+                        fontWeight = FontWeight.Bold, color = Color.White
+                    ), modifier = Modifier.align(Alignment.Center)
                 )
             }
 
             onClickButton?.let {
                 FavoriteButton(
-                    filterFavorite,
-                    it,
-                    modifier = Modifier.align(Alignment.CenterEnd)
+                    filterFavorite, it, modifier = Modifier.align(Alignment.CenterEnd)
                 )
             }
         }

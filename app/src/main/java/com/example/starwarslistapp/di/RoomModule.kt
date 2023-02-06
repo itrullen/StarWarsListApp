@@ -5,7 +5,6 @@ import androidx.room.Room
 import com.example.starwarslistapp.data.database.StarWarsDataBase
 import com.example.starwarslistapp.data.database.dao.PersonDAO
 import org.koin.android.ext.koin.androidApplication
-import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

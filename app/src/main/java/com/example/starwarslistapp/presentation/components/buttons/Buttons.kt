@@ -11,13 +11,10 @@ import com.example.starwarslistapp.presentation.theme.Purple200
 
 @Composable
 fun FavoriteButton(
-    isFavorite: Boolean, onFavouriteChanged: (Boolean) -> Unit,
-    modifier: Modifier? = Modifier
+    isFavorite: Boolean, onFavouriteChanged: (Boolean) -> Unit, modifier: Modifier? = Modifier
 ) {
     IconToggleButton(
-        checked = isFavorite,
-        onCheckedChange = onFavouriteChanged,
-        modifier = modifier ?: Modifier
+        checked = isFavorite, onCheckedChange = onFavouriteChanged, modifier = modifier ?: Modifier
     ) {
         Icon(
             tint = Purple200,

@@ -1,7 +1,7 @@
 package com.example.starwarslistapp.presentation.ui.people
 
-import PeopleScreenContent
 import FavoritesAppBar
+import PeopleScreenContent
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,26 +23,20 @@ class PeopleFragment : Fragment() {
 
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
         setViewCompositionStrategy(
             ViewCompositionStrategy.DisposeOnLifecycleDestroyed(viewLifecycleOwner)
         )
         setContent {
             StarWarsListAppTheme(darkTheme = false) {
-                Scaffold(
-                    topBar = {
-                        FavoritesAppBar(
-                            title = stringResource(id = R.string.app_name),
-                            filterFavorite = viewModel.filterFavorites.value,
-                            onClickButton = { viewModel.filterFavorites(it) })
-                    },
-                    content = {
-                        PeopleScreenContent(viewModel = viewModel, findNavController())
-                    }
-                )
+                Scaffold(topBar = {
+                    FavoritesAppBar(title = stringResource(id = R.string.app_name),
+                        filterFavorite = viewModel.filterFavorites.value,
+                        onClickButton = { viewModel.filterFavorites(it) })
+                }, content = {
+                    PeopleScreenContent(viewModel = viewModel, findNavController())
+                })
             }
         }
     }

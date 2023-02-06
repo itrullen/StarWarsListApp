@@ -25,7 +25,7 @@ class StarWarsRepository(
         personDAO.insertAll(people)
     }
 
-    suspend fun clearPeople(){
+    suspend fun clearPeople() {
         personDAO.deleteAllPeople()
     }
 }
