@@ -2,33 +2,32 @@ package com.example.starwarslistapp.presentation.ui.people
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.starwarslistapp.data.network.model.FilmPerson
-import com.example.starwarslistapp.data.repository.StarWarsRepository
-import com.example.starwarslistapp.presentation.base.BaseViewModel
+import com.example.starwarslistapp.domain.GetPeopleUseCase
+import com.example.starwarslistapp.domain.model.PersonItem
 import kotlinx.coroutines.launch
 
 class PeopleViewModel(
-    private val starWarsRepository: StarWarsRepository
-) : BaseViewModel() {
-    val peopleList = mutableStateListOf<FilmPerson>()
-    val favoritesList = mutableStateListOf<FilmPerson>()
+    private val getPeopleUseCase: GetPeopleUseCase
+) : ViewModel() {
+    val peopleList = mutableStateListOf<PersonItem>()
+    val favoritesList = mutableStateListOf<PersonItem>()
     val filterFavorites = mutableStateOf(false)
 
     init {
         getPeopleList()
     }
 
-    private fun getPeopleList() = runAsync {
-        val people = starWarsRepository.getPeopleList()
+    private fun getPeopleList() =
         viewModelScope.launch {
+            val people = getPeopleUseCase()
             peopleList.addAll(people)
         }
-    }
 
     fun onClickFavorite(index: Int) {
-        val temporaryList: MutableList<FilmPerson> =
-            emptyList<FilmPerson>().toMutableList()
+        val temporaryList: MutableList<PersonItem> =
+            emptyList<PersonItem>().toMutableList()
         temporaryList.addAll(peopleList)
         temporaryList[index].favorite = !peopleList[index].favorite
         viewModelScope.launch {
@@ -39,8 +38,8 @@ class PeopleViewModel(
 
     fun filterFavorites(enableFilter: Boolean) {
         filterFavorites.value = enableFilter
-        val temporaryList: MutableList<FilmPerson> =
-            emptyList<FilmPerson>().toMutableList()
+        val temporaryList: MutableList<PersonItem> =
+            emptyList<PersonItem>().toMutableList()
         temporaryList.addAll(peopleList)
         val list = temporaryList.filter { it.favorite }
         viewModelScope.launch {

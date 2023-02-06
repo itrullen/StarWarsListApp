@@ -1,4 +1,4 @@
-package com.example.starwarslistapp.data.network.model
+package com.example.starwarslistapp.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

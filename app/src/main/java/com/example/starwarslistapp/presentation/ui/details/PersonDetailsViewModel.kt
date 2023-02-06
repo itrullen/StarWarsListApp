@@ -1,10 +1,10 @@
 package com.example.starwarslistapp.presentation.ui.details
 
-import com.example.starwarslistapp.data.network.model.FilmPerson
-import com.example.starwarslistapp.presentation.base.BaseViewModel
+import androidx.lifecycle.ViewModel
+import com.example.starwarslistapp.domain.model.PersonItem
 
 class PersonDetailsViewModel(
-    val person: FilmPerson
-) : BaseViewModel() {
+    val person: PersonItem
+) : ViewModel() {
 
 }

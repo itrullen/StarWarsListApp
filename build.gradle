@@ -4,7 +4,7 @@ buildscript {
         kotlin_version = '1.7.20'
 
         //Jetpack Compose UI
-        compose_ui_version = '1.3.2'
+        compose_ui_version = '1.3.3'
 
         //Dependency injection
         koin_version = "3.2.2"
@@ -16,6 +16,9 @@ buildscript {
 
         // https://developer.android.com/jetpack/androidx/releases/navigation
         nav_version = '2.5.2'
+
+        //Local database
+        room_version = '2.5.0'
     }
 
     repositories {

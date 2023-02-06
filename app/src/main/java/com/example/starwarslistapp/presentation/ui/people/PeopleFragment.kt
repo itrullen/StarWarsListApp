@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.stringResource
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.starwarslistapp.R
-import com.example.starwarslistapp.presentation.base.BaseFragment
 import com.example.starwarslistapp.presentation.theme.StarWarsListAppTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class PeopleFragment : BaseFragment() {
+class PeopleFragment : Fragment() {
 
     private val viewModel: PeopleViewModel by viewModel()
 

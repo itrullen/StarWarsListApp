@@ -2,10 +2,10 @@ package com.example.starwarslistapp.presentation.ui.details
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
-import com.example.starwarslistapp.presentation.theme.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.starwarslistapp.presentation.theme.Typography
 
 @Composable
 fun PersonDetailsScreen(viewModel: PersonDetailsViewModel) {

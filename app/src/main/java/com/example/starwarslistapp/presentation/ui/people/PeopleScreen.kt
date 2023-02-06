@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.starwarslistapp.data.network.model.FilmPerson
+import com.example.starwarslistapp.domain.model.PersonItem
 import com.example.starwarslistapp.presentation.components.buttons.FavoriteButton
 import com.example.starwarslistapp.presentation.theme.Purple200
 import com.example.starwarslistapp.presentation.ui.people.PeopleFragmentDirections
@@ -29,7 +29,7 @@ fun PeopleScreenContent(viewModel: PeopleViewModel, navController: NavController
     val favoritesList = remember { viewModel.favoritesList }
     val filterFavourites by viewModel.filterFavorites
 
-    var mainList: SnapshotStateList<FilmPerson>
+    var mainList: SnapshotStateList<PersonItem>
 
     Box(
         modifier = Modifier
@@ -61,7 +61,7 @@ fun PeopleScreenContent(viewModel: PeopleViewModel, navController: NavController
 
 @Composable
 fun PeopleListItem(
-    person: FilmPerson,
+    person: PersonItem,
     onClick: () -> Unit,
     onFavouriteChanged: (Boolean) -> Unit
 ) {
@@ -94,7 +94,7 @@ fun PeopleListItem(
 @Composable
 @Preview(showBackground = false)
 private fun Preview() = PeopleListItem(
-    person = FilmPerson("Luke Skywalker", "", "", "", "", true),
+    person = PersonItem("Luke Skywalker", "", "", "", "", true),
     onClick = {},
     onFavouriteChanged = {}
 )

@@ -1,7 +1,9 @@
 package com.example.starwarslistapp.di
 
 val appModule = listOf(
+    roomModule,
     networkModule,
     repositoryModule,
-    viewModelModule,
+    useCaseModule,
+    viewModelModule
 )

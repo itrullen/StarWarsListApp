@@ -8,10 +8,9 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel {
-        PeopleViewModel(starWarsRepository = get())
+        PeopleViewModel(getPeopleUseCase = get())
     }
     viewModel { (args: PersonDetailsFragmentArgs) ->
         PersonDetailsViewModel(person = args.person)
     }
-
 }

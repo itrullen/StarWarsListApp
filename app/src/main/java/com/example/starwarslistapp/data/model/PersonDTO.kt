@@ -1,10 +1,10 @@
-package com.example.starwarslistapp.data.network.model
+package com.example.starwarslistapp.data.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class FilmPersonDTO(
+data class PersonDTO(
     @SerialName("name")
     val name: String,
     @SerialName("birth_year")
