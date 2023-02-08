@@ -51,7 +51,7 @@ fun PeopleScreenContent(viewModel: PeopleViewModel, navController: NavController
                         )
                     },
                     onFavouriteChanged = {
-                        viewModel.onClickFavorite(index)
+                        viewModel.onFavouriteChanged(index, it)
                     })
             }
         }

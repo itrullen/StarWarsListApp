@@ -15,36 +15,32 @@ class PeopleViewModel(
     val favoritesList = mutableStateListOf<PersonItem>()
     val filterFavorites = mutableStateOf(false)
 
-    init {
+    fun onCreate() {
         getPeopleList()
     }
 
-    private fun getPeopleList() =
-        viewModelScope.launch {
-            val people = getPeopleUseCase()
-            peopleList.addAll(people)
-        }
+    private fun getPeopleList() = viewModelScope.launch {
+        val people = getPeopleUseCase()
+        peopleList.clear()
+        peopleList.addAll(people)
+    }
 
-    fun onClickFavorite(index: Int) {
-        val temporaryList: MutableList<PersonItem> =
-            emptyList<PersonItem>().toMutableList()
-        temporaryList.addAll(peopleList)
-        temporaryList[index].favorite = !peopleList[index].favorite
+    fun onFavouriteChanged(index: Int, value: Boolean) {
+        val updatedList = peopleList.toMutableList()
+        updatedList[index].favorite = value
+
         viewModelScope.launch {
             peopleList.clear()
-            peopleList.addAll(temporaryList)
+            peopleList.addAll(updatedList)
         }
     }
 
     fun filterFavorites(enableFilter: Boolean) {
         filterFavorites.value = enableFilter
-        val temporaryList: MutableList<PersonItem> =
-            emptyList<PersonItem>().toMutableList()
-        temporaryList.addAll(peopleList)
-        val list = temporaryList.filter { it.favorite }
+
         viewModelScope.launch {
             favoritesList.clear()
-            favoritesList.addAll(list)
+            favoritesList.addAll(peopleList.filter { it.favorite })
         }
     }
 }
