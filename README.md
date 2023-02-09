@@ -16,3 +16,4 @@ App that shows Star Wars characters information.
 - Good separation of concerns.
 - Communication with a RESTful API with JSON format.
 - UI in Jetpack Compose.
+- Unit tests
