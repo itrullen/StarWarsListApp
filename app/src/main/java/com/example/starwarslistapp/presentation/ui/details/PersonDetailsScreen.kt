@@ -5,11 +5,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.starwarslistapp.domain.model.PersonItem
 import com.example.starwarslistapp.presentation.theme.Typography
 
 @Composable
-fun PersonDetailsScreen(viewModel: PersonDetailsViewModel) {
-    val person = viewModel.person
+fun PersonDetailsScreen(person: PersonItem) {
     Column(
         modifier = Modifier
             .fillMaxWidth()

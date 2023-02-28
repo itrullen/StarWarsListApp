@@ -21,7 +21,7 @@ class StarWarsRepository(
     suspend fun getPeopleListFromDatabase(): List<PersonItem> =
         personDAO.getAllPeople().map { it.toDomain() }
 
-    suspend fun insertPeople(people: List<PersonEntity>) {
+    suspend fun insertPeople(people: List<PersonEntity>){
         personDAO.insertAll(people)
     }
 

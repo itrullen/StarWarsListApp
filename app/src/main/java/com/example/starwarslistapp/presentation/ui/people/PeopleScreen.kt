@@ -9,7 +9,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,13 +19,12 @@ import androidx.navigation.NavController
 import com.example.starwarslistapp.domain.model.PersonItem
 import com.example.starwarslistapp.presentation.components.buttons.FavoriteButton
 import com.example.starwarslistapp.presentation.theme.Purple200
-import com.example.starwarslistapp.presentation.ui.people.PeopleFragmentDirections
 import com.example.starwarslistapp.presentation.ui.people.PeopleViewModel
 
 @Composable
 fun PeopleScreenContent(viewModel: PeopleViewModel, navController: NavController) {
-    val peopleList = remember { viewModel.peopleList }
-    val favoritesList = remember { viewModel.favoritesList }
+    val peopleList = viewModel.peopleList
+    val favoritesList = viewModel.favoritesList
     val filterFavourites by viewModel.filterFavorites
 
     var mainList: SnapshotStateList<PersonItem>
@@ -42,17 +40,13 @@ fun PeopleScreenContent(viewModel: PeopleViewModel, navController: NavController
         ) {
             mainList = if (filterFavourites) favoritesList else peopleList
             itemsIndexed(mainList) { index, person ->
-                PeopleListItem(person,
-                    onClick = {
-                        navController.navigate(
-                            PeopleFragmentDirections.actionPeopleFragmentToPersonDetailsFragment(
-                                person
-                            )
-                        )
-                    },
+                PeopleListItem(
+                    person,
+                    onClick = { navController.navigate("personDetails/${person.id}") },
                     onFavouriteChanged = {
                         viewModel.onFavouriteChanged(index, it)
-                    })
+                    }
+                )
             }
         }
 
@@ -94,7 +88,7 @@ fun PeopleListItem(
 @Composable
 @Preview(showBackground = false)
 private fun Preview() = PeopleListItem(
-    person = PersonItem("Luke Skywalker", "", "", "", "", true),
+    person = PersonItem(null, "Luke Skywalker", "", "", "", "", true),
     onClick = {},
     onFavouriteChanged = {}
 )

@@ -14,4 +14,5 @@ interface PersonDAO {
 
     @Query("DELETE FROM person_table")
     suspend fun deleteAllPeople()
+
 }

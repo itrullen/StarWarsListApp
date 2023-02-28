@@ -7,7 +7,7 @@ import com.example.starwarslistapp.domain.model.PersonItem
 
 @Entity(tableName = "person_table")
 data class PersonEntity(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Long = 0,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "birthYear") val birthYear: String,
     @ColumnInfo(name = "eyeColor") val eyeColor: String,

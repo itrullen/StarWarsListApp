@@ -11,7 +11,7 @@ class GetPeopleUseCase(private val starWarsRepository: StarWarsRepository) {
         return if (people.isNotEmpty()) {
             starWarsRepository.clearPeople()
             starWarsRepository.insertPeople(people.map { it.toDatabase() })
-            people
+            starWarsRepository.getPeopleListFromDatabase()
         } else {
             starWarsRepository.getPeopleListFromDatabase()
         }

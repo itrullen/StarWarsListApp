@@ -15,7 +15,7 @@ class PeopleViewModel(
     val favoritesList = mutableStateListOf<PersonItem>()
     val filterFavorites = mutableStateOf(false)
 
-    fun onCreate() {
+    init {
         getPeopleList()
     }
 
@@ -43,4 +43,8 @@ class PeopleViewModel(
             favoritesList.addAll(peopleList.filter { it.favorite })
         }
     }
+
+    fun getPersonFromId(id: Long) : PersonItem? =
+        peopleList.find { it.id == id }
+
 }

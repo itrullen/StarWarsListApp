@@ -19,6 +19,9 @@ buildscript {
 
         //Local database
         room_version = '2.5.0'
+
+        //Compose navigation
+        nav_version = "2.5.3"
     }
 
     repositories {

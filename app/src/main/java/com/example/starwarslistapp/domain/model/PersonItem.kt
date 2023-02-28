@@ -5,6 +5,7 @@ import com.example.starwarslistapp.data.model.PersonDTO
 import java.io.Serializable
 
 data class PersonItem(
+    val id : Long?,
     val name: String,
     val birthYear: String,
     val eyeColor: String,
@@ -15,6 +16,7 @@ data class PersonItem(
 
 fun PersonDTO.toDomain(): PersonItem {
     return PersonItem(
+        id = null,
         name = name,
         birthYear = birthYear,
         eyeColor = eyeColor,
@@ -26,6 +28,7 @@ fun PersonDTO.toDomain(): PersonItem {
 
 fun PersonEntity.toDomain(): PersonItem {
     return PersonItem(
+        id = id,
         name = name,
         birthYear = birthYear,
         eyeColor = eyeColor,
